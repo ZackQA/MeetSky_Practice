@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "net/meetSky/step_definitions",
         dryRun = false,
-        tags = "@loginEnvVariable",
+        tags = "@login",
         publish = true //generating a report with public link
 )
 public class CukesRunner {}

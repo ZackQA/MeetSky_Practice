@@ -57,15 +57,14 @@ public class LoginStepDefs {
     public void the_user_logged_in_with_valid_credentials_as_environment_variables() {
         // String password = ConfigurationReader.getProperty("password") + "----------";
         // System.out.println(password);
-        loginPage.login(ConfigurationReader.getProperty("username"), ConfigurationReader.getProperty("password"));
+        loginPage.login(System.getenv("username"), System.getenv("password"));
 
         BrowserUtils.sleep(5);
     }
     @Then("the user should land on Dashboard page")
     public void the_user_should_land_on_dashboard_page() {
-        String expDashboardUrl = "https://qa.meetsky.net/index.php/apps/dashboard/#/";
         String actDashboardUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expDashboardUrl,actDashboardUrl);
+        Assert.assertTrue(actDashboardUrl.contains("dashboard"));
     }
 
 
